@@ -10,8 +10,11 @@ library("readr")
 # Load the data
 stfinal <- read_delim("stfinal.csv.csv")
 
-#create table for qaul1 and qual2
+#create a contingency table for qaul1 and qual2
 table(stfinal$anger, stfinal$crying)
+
+#chi squared test for table
+chisq.test(table(stfinal$anger, stfinal$anger))
 
 #create a box plot for qual and quant
 boxplot(stfinal$music, stfinal$humor)
