@@ -14,15 +14,24 @@ stfinal <- read_delim("stfinal.csv.csv")
 table(stfinal$anger, stfinal$crying)
 
 #create a box plot for qual and quant
-table(stfinal$music)
 boxplot(stfinal$music, stfinal$humor)
+
+#run anova test
+anova <- aov(humor ~ music, data = stfinal)
+summary(anova)
 
 #create a scatter plot for quant1 and quant2
 plot(stfinal$creature, stfinal$flashbacks)
-abline(stfinal$creature, stfinal$flashbacks)
-resid(stfinal$creature, stfinal$flashbacks)
+linear_relationship <- lm(stfinal$creature ~ stfinal$flashbacks, stfinal = stfinal)
+summary(linear_relationship)
+abline(linear_relationship)
 
+#add lines for means of x and y
+meany <- mean(stfinal$creature)
+meanx <- mean(stfinal$flashbacks)
+abline(v = meanx, col = "black")
+abline(h = meany, col = "black")
 
-
-plot(stfinal$humor, stfinal$creature)
-residuals(stfinal$humor, stfinal$creature)
+#create residual plot for scatter plot
+plot(stfinal$flashbacks, residuals(linear_relationship))
+abline(h=0, col = "black")
