@@ -35,3 +35,20 @@ abline(h = meany, col = "black")
 #create residual plot for scatter plot
 plot(stfinal$flashbacks, residuals(linear_relationship))
 abline(h=0, col = "black")
+
+#table 1 descriptive statistics
+mean(stfinal$humor)
+summary(stfinal$humor)
+sd(stfinal$humor)
+
+mean(stfinal$creature)
+sd(stfinal$creature)
+summary(stfinal$creature)
+
+mean(stfinal$flashbacks)
+sd(stfinal$flashbacks)
+summary(stfinal$flashbacks)
+
+table(stfinal$crying)
+table(stfinal$anger)
+table(stfinal$music)
