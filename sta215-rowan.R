@@ -13,9 +13,6 @@ stfinal <- read_delim("stfinal.csv.csv")
 #create a contingency table for qaul1 and qual2
 table(stfinal$anger, stfinal$crying)
 
-#chi squared test for table
-chisq.test(table(stfinal$anger, stfinal$anger))
-
 #create a box plot for qual and quant
 boxplot(stfinal$music, stfinal$humor)
 
@@ -34,6 +31,9 @@ meany <- mean(stfinal$creature)
 meanx <- mean(stfinal$flashbacks)
 abline(v = meanx, col = "black")
 abline(h = meany, col = "black")
+
+#chi squared test for table
+chisq.test(table(stfinal$creature, stfinal$flashbacks))
 
 #create residual plot for scatter plot
 plot(stfinal$flashbacks, residuals(linear_relationship))
